@@ -1,10 +1,15 @@
-from importlib.metadata import entry_points
+"""
+Abra a aba Shell
+execute
+dundie load assets/people.csv
+"""
 import os
 from setuptools import setup, find_packages
 
+
 def read(*paths):
-    """READ the contents of a text file safely.
-    >>> read("project_name", "VERSION")
+    """Read the contents of a text file safely.
+    >>> read("dundie", "VERSION")
     '0.1.0'
     >>> read("README.md")
     ...
@@ -16,18 +21,22 @@ def read(*paths):
 
 
 def read_requirements(path):
-    """Return a list of requirement from a text file"""
+    """Return a list of requirements from a text file"""
     return [
         line.strip()
         for line in read(path).split("\n")
         if not line.startswith(("#", "git+", '"', '-'))
     ]
 
+
 setup(
     name="dundie",
     version="0.1.0",
     description="Reward Point System for Dunder Mifflin",
-    author="Daniel Lenharo de Souza",
+    #long_description=read("README.md"),
+    long_description_content_type="text/markdown",
+    author="Bruno Rocha",
+    python_requires=">=3.8",
     packages=find_packages(),
     entry_points={
         "console_scripts": [
@@ -39,5 +48,4 @@ setup(
         "test": read_requirements("requirements.test.txt"),
         "dev": read_requirements("requirements.dev.txt")
     }
-
 )
