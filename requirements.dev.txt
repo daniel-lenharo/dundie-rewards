@@ -1,9 +1,24 @@
-requirements.dev.txt
 # dev dependencies
-ipython>=7.0.0,<=8.0.0
+ipython
 ipdb
 pudb
 pytest-watch
+
+# Code Quality
+flake8
+pyproject-flake8
+black
+isort
+
+# docs
+mkdocs
+
+# build
+wheel
+
+# typing
+mypy
+types-setuptools
 
 # Install project as editable
 -e .
